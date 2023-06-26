@@ -2,8 +2,8 @@ import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
 const userSchema = new Schema({
-    name: String,
-    password: String,
+    name: {type: String, unique: true, required: true},
+    password: {type: String, minlength: 6, required: true},
     decks: [Schema.Types.ObjectId],
 })
 
